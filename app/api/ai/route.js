@@ -1,8 +1,8 @@
-import { type NextRequest, NextResponse } from "next/server"
+import { NextResponse } from "next/server"
 import { generateText } from "ai"
 import { openai } from "@ai-sdk/openai"
 
-export async function POST(req: NextRequest) {
+export async function POST(req) {
   try {
     const { content, type } = await req.json()
 

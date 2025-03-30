@@ -1,38 +1,37 @@
-interface ResumeData {
-  personalInfo: {
-    name: string
-    email: string
-    phone: string
-    location: string
-    summary: string
-  }
-  experience: {
-    id: number
-    title: string
-    company: string
-    location: string
-    startDate: string
-    endDate: string
-    description: string
-  }[]
-  education: {
-    id: number
-    degree: string
-    school: string
-    location: string
-    startDate: string
-    endDate: string
-    description: string
-  }[]
-  skills: string
-}
+/**
+ * @typedef {Object} ResumeData
+ * @property {Object} personalInfo - Personal information
+ * @property {string} personalInfo.name - Full name
+ * @property {string} personalInfo.email - Email address
+ * @property {string} personalInfo.phone - Phone number
+ * @property {string} personalInfo.location - Location
+ * @property {string} personalInfo.summary - Professional summary
+ * @property {Array<Object>} experience - Work experience
+ * @property {number} experience[].id - Experience ID
+ * @property {string} experience[].title - Job title
+ * @property {string} experience[].company - Company name
+ * @property {string} experience[].location - Job location
+ * @property {string} experience[].startDate - Start date
+ * @property {string} experience[].endDate - End date
+ * @property {string} experience[].description - Job description
+ * @property {Array<Object>} education - Education history
+ * @property {number} education[].id - Education ID
+ * @property {string} education[].degree - Degree
+ * @property {string} education[].school - School name
+ * @property {string} education[].location - School location
+ * @property {string} education[].startDate - Start date
+ * @property {string} education[].endDate - End date
+ * @property {string} education[].description - Education description
+ * @property {string} skills - Skills list
+ */
 
-interface ResumePreviewProps {
-  templateId: number
-  resumeData: ResumeData
-}
-
-export default function ResumePreview({ templateId, resumeData }: ResumePreviewProps) {
+/**
+ * Resume preview component
+ * @param {Object} props - Component props
+ * @param {number} props.templateId - Template ID
+ * @param {ResumeData} props.resumeData - Resume data
+ */
+export default function ResumePreview({ templateId, resumeData }) {
   // Different templates would have different layouts
   switch (templateId) {
     case 1:
@@ -44,7 +43,12 @@ export default function ResumePreview({ templateId, resumeData }: ResumePreviewP
   }
 }
 
-function ModernTemplate({ resumeData }: { resumeData: ResumeData }) {
+/**
+ * Modern template component
+ * @param {Object} props - Component props
+ * @param {ResumeData} props.resumeData - Resume data
+ */
+function ModernTemplate({ resumeData }) {
   const { personalInfo, experience, education, skills } = resumeData
 
   return (
@@ -130,7 +134,12 @@ function ModernTemplate({ resumeData }: { resumeData: ResumeData }) {
   )
 }
 
-function MinimalTemplate({ resumeData }: { resumeData: ResumeData }) {
+/**
+ * Minimal template component
+ * @param {Object} props - Component props
+ * @param {ResumeData} props.resumeData - Resume data
+ */
+function MinimalTemplate({ resumeData }) {
   const { personalInfo, experience, education, skills } = resumeData
 
   return (

@@ -1,7 +1,5 @@
 "use client"
 
-import type React from "react"
-
 import { useState } from "react"
 import Link from "next/link"
 import { useParams, useSearchParams } from "next/navigation"
@@ -53,7 +51,7 @@ export default function EditResumePage() {
     skills: "",
   })
 
-  const enhanceWithAI = (field: string, content: string) => {
+  const enhanceWithAI = (field, content) => {
     // In a real app, this would call the Gemini API
     console.log(`Enhancing ${field} with AI: ${content}`)
 
@@ -72,7 +70,7 @@ export default function EditResumePage() {
     }
   }
 
-  const handlePersonalInfoChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handlePersonalInfoChange = (e) => {
     const { name, value } = e.target
     setResumeData((prev) => ({
       ...prev,
@@ -83,14 +81,14 @@ export default function EditResumePage() {
     }))
   }
 
-  const handleExperienceChange = (id: number, field: string, value: string) => {
+  const handleExperienceChange = (id, field, value) => {
     setResumeData((prev) => ({
       ...prev,
       experience: prev.experience.map((exp) => (exp.id === id ? { ...exp, [field]: value } : exp)),
     }))
   }
 
-  const handleEducationChange = (id: number, field: string, value: string) => {
+  const handleEducationChange = (id, field, value) => {
     setResumeData((prev) => ({
       ...prev,
       education: prev.education.map((edu) => (edu.id === id ? { ...edu, [field]: value } : edu)),
